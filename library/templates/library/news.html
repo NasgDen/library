@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for new in news %}
+<div class="main center">
+        <div class="main_news">
+            <p class="main_news__title">{{ new.title }}</p>
+            <p class="main_news__content">{{ new.content }}</p>
+            <a href="news1.html" class="main_news__button">Подробнее</a>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

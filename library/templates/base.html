@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профессиональное сообщество библиотекарей г. Магнитогорска</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="header center">
+        <div class="navbar">
+            <div>
+                <p id="current-time"></p>
+                <p class="navbar_title">Профессиональное сообщество библиотекарей</p>
+                <p class="navbar_title">г. Магнитогорска</p>
+            </div>
+            <div class="navbar_menu">
+                <a class="navbar_menu__link" href="index.html">Новости</a>
+                <div class="dropdown">
+                    <a class="navbar_menu__link" href="#">Методическая поддержка</a>
+                    <div class="dropdown-content">
+                        <a href="#">Методические рекомендации</a>
+                        <a href="#">Образцы документов</a>
+                        <a href="#">Сценарии мероприятий</a>
+                    </div>
+                </div>
+                 <div class="dropdown">
+                    <a class="navbar_menu__link" href="#">Мероприятия</a>
+                    <div class="dropdown-content">
+                        <a href="#">План работы</a>
+                        <a href="#">Календарь знаменательных дат</a>
+                        <a href="#">Конкурсы</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a class="navbar_menu__link" href="#">База знаний</a>
+                    <div class="dropdown-content">
+                        <a href="#">Нормативные документы</a>
+                        <a href="#">Профессиональные издания</a>
+                        <a href="#">История библиотечного дела</a>
+                        <a href="#">Аттестация</a>
+                    </div>
+                </div>
+                <a class="navbar_menu__link" href="#">Личный кабинет</a>
+            </div>
+        </div>
+
+    </div>
+
+    {% block content %} {% endblock %}
+
+    <div class="footer">
+
+    </div>
+    <script src="static/js/script.js"></script>
+</body>
+</html>
