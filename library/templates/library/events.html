@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for event in events %}
+<div class="main center">
+        <div class="main_news">
+            <p class="main_news__title">{{ event.title }}</p>
+            <p class="main_news__title">{{ event.description }}</p>
+            <a class="main_news__title" href={{event.link_url}}> {{ event.link_url }}</a>
+        </div>
+</div>
+{% endfor %}
+
+{% endblock %}

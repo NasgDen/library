@@ -10,7 +10,7 @@ class News(models.Model):
     content = models.TextField(verbose_name="Содержание новости", help_text="Введите содержание новости")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_ut = models.DateTimeField(auto_now=True, verbose_name="Дата изменения")
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="news", verbose_name="Владелец")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="news", verbose_name="Владелец", blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -199,3 +199,27 @@ class Certification(models.Model):
     class Meta:
         verbose_name = "Аттестация"
         verbose_name_plural = "Аттестации"
+
+
+class MethodicalRecommendations(models.Model):
+    """Описание полей модели - Методические рекомендации"""
+
+    title = models.CharField(
+        max_length=150, verbose_name="Название методической рекомендации", help_text="Укажите названия методической рекомендации"
+    )
+    description = models.TextField(
+        verbose_name="Описание методической рекомендации", help_text="Укажите описание методической рекомендации"
+    )
+    link_url = models.URLField(
+        verbose_name="Ссылка на методическую рекомендацию", help_text="Укажите ссылка на методическую рекомендацию"
+    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated_ut = models.DateTimeField(auto_now=True, verbose_name="Дата изменения")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="methodical", verbose_name="Владелец")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Методическая рекомендации"
+        verbose_name_plural = "Методические рекомендации"

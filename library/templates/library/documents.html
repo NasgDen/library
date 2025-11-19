@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for document in documents %}
+<div class="main center">
+        <div class="main_news">
+            <p class="main_news__title">{{ document.title }}</p>
+            <a href={{document.link_to_doc}}> {{ document.title }}</a>
+        </div>
+</div>
+{% endfor %}
+
+{% endblock %}
