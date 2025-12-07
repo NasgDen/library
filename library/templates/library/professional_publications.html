@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for public in publications %}
+<div class="main center">
+        <div class="main_news">
+            <p class="main_news__title">{{ public.title }}</p>
+            <a class="main_news__title" href={{public.link_url}}> {{ public.link_url }}</a>
+        </div>
+</div>
+{% endfor %}
+
+{% endblock %}
