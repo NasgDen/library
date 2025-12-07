@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for workplan in workplans %}
+<div class="main center">
+        <div class="main_news">
+            <p class="main_news__title">{{ workplan.title }}</p>
+            <p class="main_news__title">{{ workplan.description }}</p>
+        </div>
+</div>
+{% endfor %}
+
+{% endblock %}

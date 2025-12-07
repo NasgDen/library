@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
-from library.models import News, Documents, MethodicalRecommendations, EventScenarios
+from library.models import News, Documents, MethodicalRecommendations, EventScenarios, WorkPlan
 
 
 class ListNews(ListView):
@@ -26,3 +26,8 @@ class ListEventScenarios(ListView):
     model = EventScenarios
     template_name = "library/events.html"
     context_object_name = "events"
+
+class ListWorkPlan(ListView):
+    model = WorkPlan
+    template_name = "library/workplans.html"
+    context_object_name = "workplans"
