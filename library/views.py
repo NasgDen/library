@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 from library.models import News, Documents, MethodicalRecommendations, EventScenarios, WorkPlan, \
-    CalendarSignificantDates
+    CalendarSignificantDates, Competitions
 
 
 class ListNews(ListView):
@@ -28,6 +28,7 @@ class ListEventScenarios(ListView):
     template_name = "library/events.html"
     context_object_name = "events"
 
+
 class ListWorkPlan(ListView):
     """ Отображает - План работ """
 
@@ -35,9 +36,18 @@ class ListWorkPlan(ListView):
     template_name = "library/workplans.html"
     context_object_name = "workplans"
 
+
 class ListCalendarSignificantDates(ListView):
     """ Отображает - календарь знаменательных дат """
 
     model = CalendarSignificantDates
     template_name = "library/calendary.html"
     context_object_name = "calendars"
+
+
+class ListCompetitions(ListView):
+    """ Отображает - Конкурсы """
+
+    model = Competitions
+    template_name = "library/competitions.html"
+    context_object_name = "competitions"

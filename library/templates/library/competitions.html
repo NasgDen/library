@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for competition in competitions %}
+<div class="main center">
+        <div class="main_news">
+            <p class="main_news__title">{{ competition.title }}</p>
+            <p class="main_news__title">{{ competition.description }}</p>
+            <a class="main_news__title" href={{competition.link_url}}> {{ competition.link_url }}</a>
+        </div>
+</div>
+{% endfor %}
+
+{% endblock %}
