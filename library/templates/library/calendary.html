@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for calendary in calendars %}
+<div class="main center">
+        <div class="main_news">
+            <p class="main_news__title">{{ calendary.title }}</p>
+            <p class="main_news__title">{{ calendary.description }}</p>
+            <a class="main_news__title" href={{calendary.link_url}}> {{ calendary.link_url }}</a>
+        </div>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
-from library.models import News, Documents, MethodicalRecommendations, EventScenarios, WorkPlan
+from library.models import News, Documents, MethodicalRecommendations, EventScenarios, WorkPlan, \
+    CalendarSignificantDates
 
 
 class ListNews(ListView):
@@ -28,6 +29,15 @@ class ListEventScenarios(ListView):
     context_object_name = "events"
 
 class ListWorkPlan(ListView):
+    """ Отображает - План работ """
+
     model = WorkPlan
     template_name = "library/workplans.html"
     context_object_name = "workplans"
+
+class ListCalendarSignificantDates(ListView):
+    """ Отображает - календарь знаменательных дат """
+
+    model = CalendarSignificantDates
+    template_name = "library/calendary.html"
+    context_object_name = "calendars"
