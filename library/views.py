@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 from library.models import News, Documents, MethodicalRecommendations, EventScenarios, WorkPlan, \
-    CalendarSignificantDates, Competitions, RegulatoryDocuments, ProfessionalPublications
+    CalendarSignificantDates, Competitions, RegulatoryDocuments, ProfessionalPublications, HistoryLibrarianship, \
+    Certification
 
 
 class ListNews(ListView):
@@ -67,3 +68,19 @@ class ListProfessionalPublications(ListView):
     model = ProfessionalPublications
     template_name = "library/professional_publications.html"
     context_object_name = "publications"
+
+
+class ListHistoryLibrarianship(ListView):
+    """ Отображает - Историю библиотечного дела """
+
+    model = HistoryLibrarianship
+    template_name = "library/history.html"
+    context_object_name = "histories"
+
+
+class ListCertification(ListView):
+    """  Отображает - Аттестацию """
+
+    model = Certification
+    template_name = "library/certification.html"
+    context_object_name = "certifications"

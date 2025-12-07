@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for history in histories %}
+<div class="main center">
+        <div class="main_news">
+            <p class="main_news__title">{{ history.title }}</p>
+            <a class="main_news__title" href={{history.link_url}}> {{ history.link_url }}</a>
+        </div>
+</div>
+{% endfor %}
+
+{% endblock %}

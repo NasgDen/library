@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for certification in certifications %}
+<div class="main center">
+        <div class="main_news">
+            <p class="main_news__title">{{ certification.title }}</p>
+            <p class="main_news__title">{{ certification.description }}</p>
+            <a class="main_news__title" href={{certification.link_url}}> {{ certification.link_url }}</a>
+        </div>
+</div>
+{% endfor %}
+
+{% endblock %}
