@@ -3,7 +3,7 @@ from django.urls import path
 from library.apps import LibraryConfig
 from library.views import ListNews, ListDocument, ListMethodical, ListEventScenarios, ListWorkPlan, \
     ListCalendarSignificantDates, ListCompetitions, ListRegulatoryDocuments, ListProfessionalPublications, \
-    ListHistoryLibrarianship, ListCertification
+    ListHistoryLibrarianship, ListCertification, CreateNews, DetailNews
 
 app_name = LibraryConfig.name
 
@@ -19,4 +19,6 @@ urlpatterns = [
     path("professional_publications/", ListProfessionalPublications.as_view(), name="professional_publications"),
     path("history/", ListHistoryLibrarianship.as_view(), name="history"),
     path("certification/", ListCertification.as_view(), name="certification"),
+    path("create_news/", CreateNews.as_view(), name="create_news"),
+    path("detail_news/<int:pk>/", DetailNews.as_view(), name="detail_news"),
 ]

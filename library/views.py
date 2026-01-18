@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView, DetailView
 
 from library.models import News, Documents, MethodicalRecommendations, EventScenarios, WorkPlan, \
     CalendarSignificantDates, Competitions, RegulatoryDocuments, ProfessionalPublications, HistoryLibrarianship, \
@@ -10,6 +11,20 @@ class ListNews(ListView):
     model = News
     template_name = "library/news.html"
     context_object_name = "news"
+
+
+class CreateNews(CreateView):
+    model = News
+    fields = ['title', 'content',]
+    template_name = "library/create_news.html"
+    success_url = reverse_lazy("library:news")
+    context_object_name = "news"
+
+
+class DetailNews(DetailView):
+    model = News
+    template_name = "library/detail_news.html"
+    context_object_name = 'news'
 
 
 class ListDocument(ListView):
