@@ -1,10 +1,17 @@
+from django.core.serializers import serialize
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView
+from rest_framework import viewsets
 
+from library.forms import NewsForm
 from library.models import News, Documents, MethodicalRecommendations, EventScenarios, WorkPlan, \
     CalendarSignificantDates, Competitions, RegulatoryDocuments, ProfessionalPublications, HistoryLibrarianship, \
     Certification
+from library.serializers import NewsSerializer, DocumentsSerializer, EventScenariosSerializer, WorkPlanSerializer, \
+    CalendarSignificantDatesSerializer, CompetitionsSerializer, RegulatoryDocumentsSerializer, \
+    ProfessionalPublicationsSerializer, HistoryLibrarianshipSerializer, CertificationSerializer, \
+    MethodicalRecommendationsSerializer
 
 
 class ListNews(ListView):
@@ -15,7 +22,8 @@ class ListNews(ListView):
 
 class CreateNews(CreateView):
     model = News
-    fields = ['title', 'content',]
+    form_class = NewsForm
+    # fields = ['title', 'content',]
     template_name = "library/create_news.html"
     success_url = reverse_lazy("library:news")
     context_object_name = "news"
@@ -99,3 +107,82 @@ class ListCertification(ListView):
     model = Certification
     template_name = "library/certification.html"
     context_object_name = "certifications"
+
+    # DRF
+
+
+class NewsViewSet(viewsets.ModelViewSet):
+    """ ViewSet для модули News """
+
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
+
+
+class DocumentsViewSet(viewsets.ModelViewSet):
+    """ ViewsSet для модели Documents """
+
+    queryset = Documents.objects.all()
+    serializer_class = DocumentsSerializer
+
+
+class EventScenariosViewSet(viewsets.ModelViewSet):
+    """ ViewsSet для модели EventScenarios """
+
+    queryset = EventScenarios.objects.all()
+    serializer_class = EventScenariosSerializer
+
+
+class WorkPlanViewSet(viewsets.ModelViewSet):
+    """ ViewsSet для модели WorkPlan """
+
+    queryset = WorkPlan.objects.all()
+    serializer_class = WorkPlanSerializer
+
+
+class CalendarSignificantDatesViewSet(viewsets.ModelViewSet):
+    """ ViewsSet для модели CalendarSignificantDates """
+
+    queryset = CalendarSignificantDates.objects.all()
+    serializer_class = CalendarSignificantDatesSerializer
+
+
+class CompetitionsViewSet(viewsets.ModelViewSet):
+    """ ViewsSet для модели Competitions """
+
+    queryset = Competitions.objects.all()
+    serializer_class = CompetitionsSerializer
+
+
+class RegulatoryDocumentsViewSet(viewsets.ModelViewSet):
+    """ ViewsSet для модели RegulatoryDocuments """
+
+    queryset = RegulatoryDocuments.objects.all()
+    serializer_class = RegulatoryDocumentsSerializer
+
+
+class ProfessionalPublicationsViewSet(viewsets.ModelViewSet):
+    """ ViewsSet для модели ProfessionalPublications """
+
+    queryset = ProfessionalPublications.objects.all()
+    serializer_class = ProfessionalPublicationsSerializer
+
+
+class HistoryLibrarianshipViewSet(viewsets.ModelViewSet):
+    """ ViewsSet для модели HistoryLibrarianship """
+
+    queryset = HistoryLibrarianship.objects.all()
+    serializer_class = HistoryLibrarianshipSerializer
+
+
+class CertificationViewSet(viewsets.ModelViewSet):
+    """ ViewsSet для модели Certification """
+
+    queryset = Certification.objects.all()
+    serializer_class = CertificationSerializer
+
+
+class MethodicalRecommendationsViewSet(viewsets.ModelViewSet):
+    """ ViewsSet для модели MethodicalRecommendations """
+
+    queryset = MethodicalRecommendations.objects.all()
+    serializer_class = MethodicalRecommendationsSerializer
